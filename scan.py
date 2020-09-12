@@ -1,3 +1,5 @@
+
+from flask import Flask
 # import the necessary packages
 from pyimagesearch.transform import four_point_transform
 from skimage.filters import threshold_local
@@ -5,6 +7,27 @@ import numpy as np
 import argparse
 import cv2
 import imutils
+  
+app = Flask(__name__)
+
+@app.route('/')
+def example():
+   return '{"name":"Bob"}'
+   
+   if __name__ == '__main__':
+    app.run()
+  
+# extracting latitude, longitude and formatted address  
+# of the first matching location 
+latitude = data['results'][0]['geometry']['location']['lat'] 
+longitude = data['results'][0]['geometry']['location']['lng'] 
+formatted_address = data['results'][0]['formatted_address'] 
+  
+# printing the output 
+print("Latitude:%s\nLongitude:%s\nFormatted Address:%s"
+      %(latitude, longitude,formatted_address)) 
+
+
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required = True,
